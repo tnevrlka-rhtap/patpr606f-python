@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: patpr606f-python
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: patpr606f-python 
+  name: patpr606f-python
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: patpr606f-python
+    weight: 100 
